@@ -1355,7 +1355,7 @@ skippy_hls_demux_stream_loop (SkippyHLSDemux * demux)
   
   fragment = skippy_m3u8_client_get_current_fragment (demux->client);
   
-  if (demux->dataCodec == OPUS) {
+  if (fragment && demux->dataCodec == OPUS) {
     current_opus_fragment = skippy_m3u8_client_get_current_fragment (demux->client);
     // when we seek we first want to make sure that 0 segment is pushed
     if (demux->need_segment && !demux->need_stream_start) {
